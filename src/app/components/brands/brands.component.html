@@ -1,0 +1,58 @@
+<section class="m-5">
+    <h2 class="text-main text-center fw-bold my-4 fs-1">All Brands</h2>
+    <div class="container">
+        <div class="row g-3">
+            @for (cat of allbrands; track cat._id) {
+               
+                <div class="col-md-3 ">
+                    <a href="" (click)="show(cat.image,cat.name)" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                        <div class="product shadoo border">
+                            <img [src]="cat.image" alt="cat.name" class="w-100" height="200">
+                        <h3 class="h6  text-center fw-bold py-2">{{cat.name}}</h3>
+                     </div>
+                    </a>
+                </div>
+             
+        }
+           </div>
+    </div>
+         
+    </section>
+    
+
+<div class="modal fade" id="exampleModalToggle"  aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1"  role="dialog" >
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        
+            <div class="modal-body p-0">
+            <div class="d-flex flex-wrap">
+                <div class="w-50 d-grid ">
+                    <div class="m-auto">
+                        <h2 class="text-main fw-bold">{{showNameUpper}}</h2>
+                    <h6 class="fw-bold">{{showName}}</h6>
+                    </div>
+                </div>
+                <div class="w-50">
+                    <img [src]="showSrc" class="w-100" alt="">
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

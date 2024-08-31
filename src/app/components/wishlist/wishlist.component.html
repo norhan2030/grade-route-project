@@ -1,0 +1,33 @@
+<div class="bg-main-light p-4 m-5 rounded-1">
+    <div class="d-flex justify-content-between">
+     <h3>My wish List</h3>
+     
+    </div>
+    
+      @for (product of allProductsOfWish; track $index) {
+         <div class="row align-items-center border-bottom py-3" >
+             <div class="col-md-2">
+                 <img class="w-100" [src]="product.imageCover" alt="">
+             </div>
+             <div class="col-md-10 d-flex justify-content-between">
+                 <div class="">
+                     <h6>{{product.title}}</h6>
+                 <h6 class="text-main">price:{{product.price}}</h6>
+                 <button (click)="callremovecart(product.id)" class="btn m-0 p-0 "><i class="fa-regular fa-trash-can text-main"></i> remove</button>
+         
+                 </div>
+                 <div class="">
+                   <button class="btn main-border btn-sm p-2" (click)="addCart(product.id)">add to cart</button>
+                     
+                 </div>
+             </div>
+         
+         </div>
+      }
+    
+     <!-- <button class="btn bg-main text-white mx-2"> Master </button> -->
+     <div class=" text-center  mt-4">
+         <!-- <button class="btn main-border btn-sm p-2" (click)="clearCart()">Clear your Cart</button> -->
+     
+         </div>
+     </div>

@@ -1,0 +1,51 @@
+
+<div class="w-75 mx-auto my-5 p-4 bg-main-light shadow rounded-4">
+    <h4 class="h2 text-main">Login now:</h4>
+    @if (backEndError) {
+        <div  class="alert alert-danger">
+            {{backEndError}}
+        </div>
+    }
+    <form [formGroup]="loginForm" (ngSubmit)="handelLogin()">
+   
+    <label for="">email:</label>
+    <input formControlName="email" [ngClass]="{
+        'is-valid':!loginForm.get('email')?.errors &&loginForm.get('email')?.touched,
+        'is-invalid':loginForm.get('email')?.errors &&loginForm.get('email')?.touched}" type="email" class="form-control mb-2" id="email">
+    @if (loginForm.get('email')?.errors &&(loginForm.get('email')?.touched||loginForm.get('email')?.dirty)) {
+        <div class="alert alert-danger" >
+            @if (loginForm.get('email')?.getError('required')) {
+                <p  class="m-0">email is required</p>
+            }@else if (loginForm.get('email')?.getError('email')) {
+                <p  class="m-0">email invalid</p>
+            }
+        </div>
+    }
+    <label for="">password:</label>
+    <input formControlName="password" [ngClass]="{
+        'is-valid':!loginForm.get('password')?.errors &&loginForm.get('password')?.touched,
+        'is-invalid':loginForm.get('password')?.errors &&loginForm.get('password')?.touched}" type="password" class="form-control mb-2" id="password">
+    @if (loginForm.get('password')?.errors &&(loginForm.get('password')?.touched||loginForm.get('password')?.dirty)) {
+        <div class="alert alert-danger" >
+            @if (loginForm.get('password')?.getError('required')) {
+                <p  class="m-0">password is required</p>
+            }@else if (loginForm.get('password')?.getError('pattern')) {
+                <p  class="m-0">enter valid password</p>
+            }
+        </div>
+    }
+  
+   
+  <div class=" d-flex justify-content-end align-items-center" >
+    <a routerLink="/forgot" class="text-decoration-underline  me-2 link-primary">forgot Password</a>
+    <button  type="submit" [disabled]="loginForm.invalid ||isLoading"  class="btn  border-none border-0 text-white btn-main">
+    @if (isLoading) {
+        <i  class="fas fa-spinner fa-spin"></i>
+    }
+    <span >login</span> 
+    </button>
+  </div>
+    
+
+</form>
+</div>

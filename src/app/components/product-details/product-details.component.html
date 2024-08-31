@@ -1,0 +1,30 @@
+@if (productDetailesData) {
+    <section>
+        <h2 class="text-center text-main py-2">product details</h2>
+        <div class="row align-items-center py-4">
+            <div class="col-md-4">
+        <img class="w-100" [src]="productDetailesData?.imageCover" alt="">
+            </div>
+            <div class="col-md-8">
+                <h2 class="h4 fw-bolder mb-2">{{productDetailesData?.title}}</h2>
+                <p class="yext-muted p-3">{{productDetailesData?.description}}</p>
+                <div class="d-flex align-items-center justify-content-between">
+                    <span class="text-muted fw-bold font-sm">{{ productDetailesData?.price }} EGP</span>
+                    <div>
+                        @for (item of [1,2,3,4,5].slice(0, productDetailesData.ratingsAverage); track $index) {
+                            <i class="fas fa-star rating-color"></i>
+                        }
+                        @if (productDetailesData.ratingsAverage%1 !==0) {
+                            <i class="fa-solid fa-star-half-stroke rating-color"></i>
+    
+                        } 
+                    <span class="text-muted fw-bold font-sm">{{
+                        productDetailesData?.ratingsAverage
+                    }}</span>
+                    </div>
+                </div>
+                <button class="btn bg-main text-white w-100 my-2" (click)="addCart(productDetailesData.id)">+ add</button>
+            </div>
+        </div>
+    </section>
+}

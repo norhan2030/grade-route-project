@@ -1,0 +1,73 @@
+<nav
+    class="navbar navbar-expand-sm navbar-light bg-light fixed-top"
+>
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-3" routerLink="home" href="#"><i class="fa-solid fa-cart-shopping fs-2 text-main"></i> fresh cart</a>
+
+        <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav m-auto mt-2 mt-lg-0">
+                
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="text-black fw-bold" routerLink="home" href="#">home</a>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" routerLinkActive="text-black fw-bold" routerLink="products" href="#">products</a>
+
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" routerLinkActive="text-black fw-bold" routerLink="cart" href="#">cart</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="text-black fw-bold" routerLink="wish" href="#">wish</a>
+
+               </li>
+                
+                <li class="nav-item">
+                     <a class="nav-link" routerLinkActive="text-black fw-bold" routerLink="categories" href="#">categories</a>
+
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" routerLinkActive="text-black fw-bold" routerLink="brands" href="#">brands</a>
+
+                </li>
+
+                
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item me-2">
+                    <a class="nav-link position-relative" href="#" routerLink="/cart" routerLinkActive="text-black fw-bold">
+                        <span class="px-2 bg-black position-absolute rounded-2 top-0 end-0 bg-main  text-white">{{cartnumOfCartItems}}</span>
+                        <i class="fa-solid fa-cart-shopping fs-3"></i>
+                    </a>
+    
+                   </li>
+        
+                
+              
+               
+           <li class="nav-item">
+            <a class="nav-link" href="#" (click)="_AuthService.logout()">
+               signOut
+            </a>
+
+       </li>
+
+                
+            </ul>
+          
+        </div>
+    </div>
+</nav>
+
